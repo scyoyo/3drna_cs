@@ -1,15 +1,17 @@
 # 在 Google Colab 上一键运行
 
-本仓库可在 **Google Colab** 上直接运行，无需本地环境，并支持 **自动下载 Kaggle 比赛数据**。
+**仓库地址：** https://github.com/scyoyo/3drna_cs  
+
+本仓库可在 **Google Colab** 上直接运行，无需本地环境；Colab 中可直接 **`git clone`** 本 repo，并 **自动下载 Kaggle 比赛数据**。
 
 ## 步骤概览
 
 1. 准备 Kaggle API：在 [Kaggle Account](https://www.kaggle.com/settings) 创建 API Token，下载 `kaggle.json`。
-2. 打开 Colab：用 Colab 打开 **`notebooks/colab_run_all.ipynb`**。
-3. 上传代码与配置：
-   - 将本仓库打成 **`3drna_cs.zip`** 上传到 Colab 的 `/content/`，或
-   - 从 GitHub 克隆到 `/content/3drna_cs`，或
-   - 从 Google Drive 打开已同步的该仓库。
+2. 打开 Colab：打开 **`notebooks/colab_run_all.ipynb`**（可从 [GitHub](https://github.com/scyoyo/3drna_cs) 打开该 ipynb 后点 “Open in Colab”）。
+3. 代码库获取（二选一即可）：
+   - **推荐**：运行「上传/解压代码库」单元格，若无 `/content/3drna_cs` 会自动执行 **`git clone https://github.com/scyoyo/3drna_cs /content/3drna_cs`**；
+   - 若已克隆过，想拉取最新代码可在 Colab 中执行：`!cd /content/3drna_cs && git pull`；
+   - 或上传 **`3drna_cs.zip`** 到 `/content/` 后由该单元格解压。
 4. 在 Colab 中 **按顺序执行** `colab_run_all.ipynb` 中的单元格。
 
 ## 详细说明
@@ -25,8 +27,9 @@
 
 ### 3. 代码库路径
 
-- 若已上传 **`3drna_cs.zip`** 到 `/content/`，运行「上传/解压代码库」单元格会自动解压并设置 `ROOT`。
-- 否则会尝试当前目录或父目录；若仍找不到 `src/`，请把仓库放到 `/content/3drna_cs` 或按提示上传/克隆。
+- 运行「上传/解压代码库」单元格时，若不存在 `/content/3drna_cs`，会自动 **`git clone https://github.com/scyoyo/3drna_cs /content/3drna_cs`**。
+- 若之前已克隆过，需要更新代码时可在新单元格中执行：`!cd /content/3drna_cs && git pull`，再继续后续步骤。
+- 也可上传 **`3drna_cs.zip`** 到 `/content/`，该单元格会解压并设置 `ROOT`。
 
 ### 4. 下载比赛数据
 
