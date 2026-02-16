@@ -1,0 +1,40 @@
+# Training configuration
+
+batch_size: 2
+gradient_accumulation_steps: 4
+max_seq_len: 512
+crop_len_min: 128
+crop_len_max: 384
+
+# Stage 1: SS pretrain
+stage1_epochs: 20
+stage1_lr: 1e-3
+stage1_freeze_evoformer: false
+
+# Stage 2: 3D structure
+stage2_epochs: 30
+stage2_lr: 5e-4
+stage2_freeze_evoformer_layers: 12
+
+# Stage 3: E2E + multichain
+stage3_epochs: 10
+stage3_lr: 1e-4
+stage3_num_recycling: 6
+
+# Loss weights
+w_fape: 1.0
+w_dist: 0.3
+w_ss: 0.5
+w_violation: 0.02
+w_clash: 0.1
+w_chain_break: 0.05
+w_pairing_geom: 0.2
+
+# Paths (override in Colab/Kaggle)
+data_dir: "."
+pdb_rna_dir: "PDB_RNA"
+msa_dir: "MSA"
+train_sequences: "train_sequences.csv"
+train_labels: "train_labels.csv"
+validation_sequences: "validation_sequences.csv"
+validation_labels: "validation_labels.csv"

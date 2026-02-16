@@ -1,0 +1,25 @@
+# Core
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+pyyaml>=6.0
+
+# PyTorch
+torch>=2.0.0
+torchvision
+
+# Structure / geometry
+biopython>=1.81
+gemmi>=0.6.0
+
+# Optional: for MSA covariation (can use numpy only)
+# scikit-learn>=1.2.0
+
+# Notebooks
+jupyter
+matplotlib
+seaborn
+
+# Development
+pytest
+black

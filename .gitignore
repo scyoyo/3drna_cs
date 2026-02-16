@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Data and outputs (root-level data dir only)
+/data/
+*.csv
+!configs/*.yaml
+checkpoints/
+*.pt
+*.pth
+*.npz
+PDB_RNA/
+MSA/
+*.zip
+
+# Kaggle / secrets
+kaggle.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Logs
+*.log
+logs/

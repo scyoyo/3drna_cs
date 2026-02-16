@@ -1,0 +1,34 @@
+# Model hyperparameters for mechanism-driven RNA 3D prediction
+
+# MSA / Evoformer
+msa_depth_max: 512
+msa_single_dim: 256
+msa_pair_dim: 128
+evoformer_num_blocks: 24
+evoformer_num_heads: 8
+evoformer_dropout: 0.1
+triangle_dropout: 0.25
+
+# Secondary structure head
+ss_num_classes: 2  # unpaired, paired
+ss_min_hairpin_loop: 3
+
+# Structure module (IPA)
+structure_num_layers: 8
+structure_num_heads: 4
+structure_num_point_qk: 4
+structure_num_point_v: 8
+structure_num_channel: 384
+structure_fape_clamp: 10.0  # Angstroms
+
+# Nucleotide embedding
+nucleotide_vocab_size: 5  # A, U, G, C, gap/pad
+embed_dim: 256
+
+# Recycling
+num_recycling: 3
+
+# Multi-chain
+multichain_embed_dim: 64
+max_chains: 16
+max_copies_per_chain: 8
