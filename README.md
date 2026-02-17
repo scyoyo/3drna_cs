@@ -44,10 +44,10 @@ pip install -r requirements.txt
 
 3. **按顺序执行**  
    - **第 1 节**：安装依赖（`kaggle`, `pyyaml` 等；Colab 已带 PyTorch）。  
-   - **第 2 节**：把 `kaggle.json` 上传到 `/content/`（左侧文件栏上传到 Colab 根目录），然后运行该单元格完成 API 配置。  
+   - **第 2 节**：配置 Kaggle API：把 `kaggle.json` 上传到 `/content/`，或放到 **Google Drive 的 MyDrive 根目录** 后先挂载 Drive，再运行该单元格（会从 `/content/` 或 Drive 读取）。  
    - **第 3 节**：若无 `/content/3drna_cs`，会自动 **`git clone https://github.com/scyoyo/3drna_cs /content/3drna_cs`**；若已克隆过想更新，可在该目录执行 **`git pull`**。也可上传 `3drna_cs.zip` 到 `/content/` 后解压。  
-   - **第 4 节**：运行 `scripts/download_kaggle_data.py --light`，自动下载比赛 CSV（轻量模式，不下载 MSA/PDB_RNA）。  
-   - **第 5 节**：运行训练 `src/train.py --data_dir /content/stanford-rna-3d-folding-2`。  
+   - **第 4 节**：运行 `scripts/download_kaggle_data.py --light` 下载比赛 CSV；若希望**数据持久化**，可挂载 Drive 后把数据目录设到 Drive（如 `/content/drive/MyDrive/stanford-rna-3d-folding-2`），已有 CSV 时会自动跳过下载。  
+   - **第 5 节**：运行训练 `src/train.py --data_dir <你的 DATA_DIR>`。  
    - 可选：挂载 Google Drive，将 `checkpoints/` 复制到 Drive 备份。
 
 4. **数据说明**  

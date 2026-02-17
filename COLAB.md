@@ -22,8 +22,8 @@
 
 ### 2. 配置 Kaggle API
 
-- 将下载好的 **`kaggle.json`** 上传到 Colab：左侧「文件」→ 上传到 `/content/`。
-- 运行「上传 kaggle.json 并配置 API」单元格，脚本会把 `kaggle.json` 拷贝到 `~/.kaggle/` 并设置权限。
+- **方式 A**：将 **`kaggle.json`** 上传到 Colab 左侧 `/content/`。
+- **方式 B（推荐持久化）**：先把 `kaggle.json` 放到 Google Drive 的 **MyDrive 根目录**（即 `/content/drive/MyDrive/kaggle.json`），在 Notebook 里先运行「可选：挂载 Google Drive」单元格，再运行「上传 kaggle.json 并配置 API」；脚本会优先用 `/content/` 下的文件，若没有则从 Drive 读取。
 
 ### 3. 代码库路径
 
@@ -40,7 +40,8 @@ python scripts/download_kaggle_data.py --data_dir /content/stanford-rna-3d-foldi
 ```
 
 - **`--light`**：只下载 CSV（train/validation labels + sequences），不下载 MSA 和 PDB_RNA，适合先跑通流程。
-- 需要 MSA 时：在 `scripts/download_kaggle_data.py` 中去掉 `--light` 后重新运行（或从 Kaggle 网页手动下载 MSA 到 `DATA_DIR/MSA/`）。
+- **数据放在 Google Drive**：可先把数据下载到 Drive（例如 `MyDrive/stanford-rna-3d-folding-2`），挂载 Drive 后把 `DATA_DIR` 改为 `/content/drive/MyDrive/stanford-rna-3d-folding-2` 再运行；脚本检测到该目录下已有 `train_sequences.csv` 和 `train_labels.csv` 时会自动跳过下载。
+- 需要 MSA 时：去掉 `--light` 重新下载（或从 Kaggle 网页手动下载 MSA 到 `DATA_DIR/MSA/`）。
 
 ### 5. 运行训练
 

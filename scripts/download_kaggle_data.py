@@ -36,6 +36,11 @@ def main():
     data_dir.mkdir(parents=True, exist_ok=True)
     cwd = data_dir
 
+    # 若已有核心 CSV（例如数据在 Google Drive），可跳过下载
+    if args.light and (cwd / "train_sequences.csv").exists() and (cwd / "train_labels.csv").exists():
+        print("Data already present at", cwd, "(train_sequences.csv, train_labels.csv). Skipping download.")
+        return
+
     try:
         run(["kaggle", "competitions", "list", "-c", COMPETITION])
     except (FileNotFoundError, subprocess.CalledProcessError):
